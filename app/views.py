@@ -1,79 +1,82 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import *
-from .forms import *
+from django.shortcuts import render
 from django.views import View
-from django.contrib import messages
+from .models import *
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        livros = Livro.objects.all()
-        return render(request, 'index.html', {'livros': livros})
+        return render(request, 'index.html')
 
-class LivrosView(View):
+class PessoaView(View):
     def get(self, request, *args, **kwargs):
-        livros = Livro.objects.all()
-        return render(request, 'livros.html', {'livros': livros})
-# def post(self, request, *args, **kwargs):
-# class EmprestimoView(View):
-#     def get(self, request, *args, **kwargs):
-#         reservas = Emprestimo.objects.all()
-#         return render(request, 'reserva.html',
-# {'reservas': reservas})
-    
-class CidadesView(View):
+        pessoas = Pessoa.objects.all()
+        return render(request, 'pessoa.html', {'pessoas': pessoas})
+
+class OcupacaoView(View):
+    def get(self, request, *args, **kwargs):
+        ocupacoes = Ocupacao.objects.all()
+        return render(request, 'ocupacao.html', {'ocupacoes': ocupacoes})
+
+class InstituicaoEnsinoView(View):
+    def get(self, request, *args, **kwargs):
+        instituicoes = InstituicaoEnsino.objects.all()
+        return render(request, 'instituicao.html', {'instituicoes': instituicoes})
+
+class AreaSaberView(View):
+    def get(self, request, *args, **kwargs):
+        areas = AreaSaber.objects.all()
+        return render(request, 'area_saber.html', {'areas': areas})
+
+class CursoView(View):
+    def get(self, request, *args, **kwargs):
+        cursos = Curso.objects.all()
+        return render(request, 'curso.html', {'cursos': cursos})
+
+class TurmaView(View):
+    def get(self, request, *args, **kwargs):
+        turmas = Turma.objects.all()
+        return render(request, 'turma.html', {'turmas': turmas})
+
+class DisciplinaView(View):
+    def get(self, request, *args, **kwargs):
+        disciplinas = Disciplina.objects.all()
+        return render(request, 'disciplina.html', {'disciplinas': disciplinas})
+
+class MatriculaView(View):
+    def get(self, request, *args, **kwargs):
+        matriculas = Matricula.objects.all()
+        return render(request, 'matricula.html', {'matriculas': matriculas})
+
+class AvaliacaoView(View):
+    def get(self, request, *args, **kwargs):
+        avaliacoes = Avaliacao.objects.all()
+        return render(request, 'avaliacao.html', {'avaliacoes': avaliacoes})
+
+class FrequenciaView(View):
+    def get(self, request, *args, **kwargs):
+        frequencias = Frequencia.objects.all()
+        return render(request, 'frequencia.html', {'frequencias': frequencias})
+
+class TurnoView(View):
+    def get(self, request, *args, **kwargs):
+        turnos = Turno.objects.all()
+        return render(request, 'turno.html', {'turnos': turnos})
+
+class CidadeView(View):
     def get(self, request, *args, **kwargs):
         cidades = Cidade.objects.all()
-        return render(request, 'cidade.html', {'cidades':cidades})
-class AutoresView(View):
-    def get(self, request, *args, **kwargs):
-        autores = Autor.objects.all()
-        return render(request, 'autor.html', {'autores':
-autores})
-class EditorasView(View):
-    def get(self, request, *args, **kwargs):
-        editoras = Editora.objects.all()
-        return render(request, 'editora.html',
-{'editoras': editoras})
-class LeitoresView(View):
-    def get(self, request, *args, **kwargs):
-        leitores = Leitor.objects.all()
-        return render(request, 'leitor.html',
-{'leitores': leitores})
-class GenerosView(View):
-    def get(self, request, *args, **kwargs):
-        generos = Genero.objects.all()
-        return render(request, 'genero.html', {'generos':
-generos})
-    
-# parte 6
+        return render(request, 'cidade.html', {'cidades': cidades})
 
+class OcorrenciaView(View):
+    def get(self, request, *args, **kwargs):
+        ocorrencias = Ocorrencia.objects.all()
+        return render(request, 'ocorrencia.html', {'ocorrencias': ocorrencias})
 
-    
-# class DeleteLivroView(View):
-#     def get(self, request, id, *args, **kwargs):
-#         livro = Livro.objects.get(id=id)
-#         livro.delete() 
-#         messages.success(request, 'Livro excluído com sucesso!')
-#          #Successmessage
-#         return redirect('livros')
-    
-# class EditarLivroView(View):
-#     template_name = 'editar_livro.html'
+class CursoDisciplinaView(View):
+    def get(self, request, *args, **kwargs):
+        curso_disciplinas = CursoDisciplina.objects.all()
+        return render(request, 'curso_disciplina.html', {'curso_disciplinas': curso_disciplinas})
 
-#     def get(self, request, id, *args, **kwargs):
-#         livro = get_object_or_404(Livro, id=id)
-#         form = LivroForm(instance=livro)
-#         return render(request, self.template_name, {'livro': livro,
-# 'form': form})
-    
-#     def post(self, request, id, *args, **kwargs):
-#         livro = get_object_or_404(Livro, id=id)
-#         form = LivroForm(request.POST, instance=livro)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'As edições foram salvas com sucesso.')
-
-#             return redirect('editar', id=id) # Redirecionar de volta para a página de edição
-#         else:
-#             messages.error(request, 'Corrija os erros no formulário antes de enviar novamente.')
-#         return render(request, self.template_name, {'livro': livro,'form': form})
+class AvaliacaoTipoView(View):
+    def get(self, request, *args, **kwargs):
+        tipos = AvaliacaoTipo.objects.all()
+        return render(request, 'avaliacao_tipo.html', {'tipos': tipos})

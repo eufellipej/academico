@@ -1,18 +1,18 @@
 from django.contrib import admin
 from .models import *
-from django.contrib import admin
-
-class LivroInline(admin.TabularInline):
-    model = Livro
-    extra = 1 # Número de livros adicionais para adicionar no admin
-class AutorAdmin(admin.ModelAdmin):
-    list_display = ('nome',)# Campos que serão exibidos na listagem
-    search_fields = ('nome',)# Campos que serão pesquisad
-    inlines = [LivroInline]# Adiciona a tabela de livros no admin de gêneros
 
 admin.site.register(Cidade)
-admin.site.register(Autor,AutorAdmin)
-admin.site.register(Editora)
-admin.site.register(Leitor)
-admin.site.register(Livro)
-admin.site.register(Genero)
+admin.site.register(Ocupacao)
+admin.site.register(Pessoa)
+admin.site.register(InstituicaoEnsino)
+admin.site.register(AreaSaber)
+admin.site.register(Curso)
+admin.site.register(Turma)
+admin.site.register(Disciplina)
+admin.site.register(AvaliacaoTipo)
+admin.site.register(Matricula)
+admin.site.register(Avaliacao)
+admin.site.register(Frequencia)
+admin.site.register(Turno)
+admin.site.register(Ocorrencia)
+admin.site.register(CursoDisciplina)
