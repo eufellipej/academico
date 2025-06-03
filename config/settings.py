@@ -12,7 +12,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 	'app',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
 	'django.contrib.auth',
 	'django.contrib.admin',
 	'django.contrib.sessions',
@@ -26,7 +26,7 @@ MIDDLEWARE = [
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.middleware.security.SecurityMiddleware',
-	'django.contrib.sessions.middleware.SssionMiddleware',
+	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'academicoG2025',
+		'NAME': 'academicog2025',
 		'USER': 'postgres',
 		'PASSWORD': '123456',
 		'HOST': 'localhost',
@@ -90,7 +90,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(STATIC_URL, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 
 STATICFILES_DIRS = [
 	os.path.join(BASE_DIR, "app/static/"),

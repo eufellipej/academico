@@ -4,7 +4,8 @@ from .models import *
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'index.html')
+        pessoas = Pessoa.objects.all()
+        return render(request, 'index.html',{'pessoas': pessoas})
 
 class PessoaView(View):
     def get(self, request, *args, **kwargs):
